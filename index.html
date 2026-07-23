@@ -267,5 +267,21 @@
 
 </x-import>
 </x-dc>
+<script>
+(function () {
+  function hideRail() {
+    var ds = document.querySelector('deck-stage');
+    if (!ds) return false;
+    ds.setAttribute('no-rail', '');
+    return true;
+  }
+  if (!hideRail()) {
+    var mo = new MutationObserver(function () {
+      if (hideRail()) mo.disconnect();
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  }
+})();
+</script>
 </body>
 </html>
