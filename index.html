@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>自由電子報 AI 組報實驗計畫</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+<style>
+  * { margin:0; box-sizing:border-box; text-wrap:pretty; }
+  a { color:#A62F27; } a:hover { color:#82231d; }
+  .rv,.rvU,.pop { will-change:transform,opacity; }
+  @media (prefers-reduced-motion: no-preference) {
+    [data-deck-active] .rv  { animation: rvL .58s cubic-bezier(.2,.85,.25,1) both; animation-delay:var(--d,0s); }
+    [data-deck-active] .rvU { animation: rvU .58s cubic-bezier(.2,.85,.25,1) both; animation-delay:var(--d,0s); }
+    [data-deck-active] .pop { animation: pop .5s cubic-bezier(.2,1.2,.35,1) both; animation-delay:var(--d,0s); }
+  }
+  @keyframes rvL { from{opacity:0;transform:translateX(-42px);} to{opacity:1;transform:none;} }
+  @keyframes rvU { from{opacity:0;transform:translateY(38px);} to{opacity:1;transform:none;} }
+  @keyframes pop { from{opacity:0;transform:scale(.7) rotate(var(--r,0deg));} to{opacity:1;transform:scale(1) rotate(var(--r,0deg));} }
+</style>
+</helmet>
+
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<!-- ══ 封面 ══ -->
+<section data-label="封面" data-speaker-notes="自由電子報 AI 組報實驗計畫。從等待讀者到主動發送。不是把新聞交給 AI 重寫，而是把素材轉化為有觀點、可持續出刊的內容產品。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:90px 120px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+  <div style="position:absolute;top:170px;left:50%;transform:translateX(-50%) rotate(-3deg);width:200px;height:34px;background:repeating-linear-gradient(90deg,#8f8778 0 3px,transparent 3px 9px);border:2px solid #8f8778;border-radius:2px;opacity:.5;pointer-events:none;"></div>
+  <svg class="pop" style="--d:.5s;--r:-10deg;position:absolute;top:270px;right:360px;width:44px;height:44px;pointer-events:none;" viewBox="0 0 24 24" fill="none" stroke="#5C5346" stroke-width="1.4"><path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"></path></svg>
+  <svg class="pop" style="--d:.62s;--r:8deg;position:absolute;bottom:250px;left:360px;width:32px;height:32px;pointer-events:none;" viewBox="0 0 24 24" fill="none" stroke="#5C5346" stroke-width="1.4"><path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"></path></svg>
+  <div class="rvU" style="--d:.05s;border:2.5px solid #4A4436;border-radius:10px;padding:58px 82px 50px;background:rgba(255,253,247,.55);box-shadow:0 8px 26px rgba(0,0,0,.06);">
+    <h1 style="font-weight:900;font-size:90px;line-height:1.24;margin:0;">自由電子報 AI 組報實驗計畫<br><span style="font-size:66px;">— 從等待讀者到<span style="background:linear-gradient(transparent 52%,#F3E27E 52%);padding:0 4px;">主動發送</span></span></h1>
+    <div style="display:flex;gap:16px;justify-content:center;align-items:center;margin-top:28px;">
+      <span style="font-size:34px;font-weight:900;color:#fff;background:#A62F27;border-radius:999px;padding:9px 30px;box-shadow:0 4px 12px rgba(166,47,39,.28);">體育</span>
+      <span style="font-size:32px;font-weight:900;color:#A62F27;">＋</span>
+      <span style="font-size:34px;font-weight:900;color:#2b5a71;background:#BBD8E8;border-radius:999px;padding:9px 30px;box-shadow:0 4px 12px rgba(43,90,113,.2);">財經</span>
+      <span style="font-size:30px;font-weight:700;color:#6A6152;margin-left:6px;">雙頻道</span>
+    </div>
+  </div><div class="rvU" style="--d: .3s; margin-top: 46px; max-width: 1140px; font-size: 45px; line-height: 1.62; color: #3a342b">
+    不是把新聞交給 AI 重寫<br><span style="background: linear-gradient(transparent 55%, rgb(243, 226, 126) 55%); font-weight: 700;">而是把素材轉化為有觀點、可持續出刊的內容產品</span>。
+  </div>
+
+</section>
+
+<!-- ══ 01 · 成果速覽 — AI 實驗過程 ══ -->
+<section data-label="AI實驗過程" data-speaker-notes="A：6 週從 0 到可出刊的六步流程。B：AI 標註的 8 種受眾需求（FT 顧問團隊建議）。C：會學習的系統——編輯評分回饋、AI 產生優化版 Prompt（人審核上線）、語料萃取自家文風。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:52px 84px 50px;display:flex;flex-direction:column;">
+  <div class="rvU" style="--d:.05s;display:flex;align-items:center;gap:20px;margin:0 0 26px;">
+    <span style="font-size:26px;font-weight:900;letter-spacing:2px;color:#A62F27;border:2px solid #A62F27;border-radius:999px;padding:6px 24px;background:rgba(255,253,247,.75);white-space:nowrap;">01 · 成果速覽</span>
+    <h2 style="font-weight:900;font-size:58px;margin:0;white-space:nowrap;">AI 實驗過程</h2>
+  </div>
+
+  <div class="rv" style="--d:.14s;background:#E4C15E;border-radius:16px;padding:18px 26px;box-shadow:0 5px 14px rgba(0,0,0,.08);">
+    <div style="font-size:26px;font-weight:900;color:#6e5410;margin-bottom:12px;">A · 6 週從 0 到可出刊</div>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:6px;">
+      <span style="background:#fff;border:2px solid #b08e2c;border-radius:999px;padding:13px 22px;font-size:26px;font-weight:700;">選題分群</span><span style="color:#A62F27;font-size:34px;font-weight:900;">➜</span>
+      <span style="background:#fff;border:2px solid #b08e2c;border-radius:999px;padding:13px 22px;font-size:26px;font-weight:700;">AI 融合</span><span style="color:#A62F27;font-size:34px;font-weight:900;">➜</span>
+      <span style="background:#fff;border:2px solid #b08e2c;border-radius:999px;padding:13px 22px;font-size:26px;font-weight:700;">去 AI 味</span><span style="color:#A62F27;font-size:34px;font-weight:900;">➜</span>
+      <span style="background:#fff;border:2px solid #b08e2c;border-radius:999px;padding:13px 22px;font-size:26px;font-weight:700;">查核校正</span><span style="color:#A62F27;font-size:34px;font-weight:900;">➜</span>
+      <span style="background:#fff;border:2px solid #b08e2c;border-radius:999px;padding:13px 22px;font-size:26px;font-weight:700;">組報</span><span style="color:#A62F27;font-size:34px;font-weight:900;">➜</span>
+      <span style="background:#A62F27;color:#fff;border-radius:12px;padding:13px 22px;font-size:26px;font-weight:700;">一鍵送電子報系統</span>
+    </div>
+  </div>
+
+  <div style="display:flex;gap:20px;margin-top:18px;flex:1;min-height:0;">
+    <div class="rv" style="--d:.24s;flex:1.28;background:#BBD8E8;border-radius:16px;padding:20px 24px;box-shadow:0 5px 14px rgba(0,0,0,.08);display:flex;flex-direction:column;">
+      <div style="font-size:26px;font-weight:900;color:#2b5a71;margin-bottom:14px;">B · AI 標註的 8 種受眾需求</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;flex:1;">
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="text-align:center;font-size:25px;font-weight:900;color:#7a5f10;background:#F3E4A8;border-radius:8px;padding:6px;">事實型</div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">告訴我發生什麼<br><span style="color:#8a7f6d;font-size:26px;">Update me</span></div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">重大通知<br><span style="color:#8a7f6d;font-size:26px;">Alert me</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="text-align:center;font-size:25px;font-weight:900;color:#2b5a71;background:#cfe6f2;border-radius:8px;padding:6px;">行動型</div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">給我可用素材<br><span style="color:#8a7f6d;font-size:26px;">Support me</span></div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">連結同好<br><span style="color:#8a7f6d;font-size:26px;">Connect me</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="text-align:center;font-size:25px;font-weight:900;color:#4a6329;background:#d8e7c2;border-radius:8px;padding:6px;">脈絡型</div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">解釋給我聽<br><span style="color:#8a7f6d;font-size:26px;">Educate me</span></div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">給我觀點<br><span style="color:#8a7f6d;font-size:26px;">Give me perspective</span></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="text-align:center;font-size:25px;font-weight:900;color:#8a3320;background:#f3ccbd;border-radius:8px;padding:6px;">情感型</div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">娛樂我<br><span style="color:#8a7f6d;font-size:26px;">Entertain me</span></div>
+          <div style="background:#fff;border-radius:8px;padding:13px 14px;font-size:30px;line-height:1.32;flex:1;text-align:center;display:flex;flex-direction:column;justify-content:center;">啟發我<br><span style="color:#8a7f6d;font-size:26px;">Inspire me</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="rv" style="--d:.34s;flex:1;background:#EFA98F;border-radius:16px;padding:22px 24px;box-shadow:0 5px 14px rgba(0,0,0,.08);display:flex;flex-direction:column;justify-content:space-between;">
+      <div style="font-size:26px;font-weight:900;color:#8a3320;">C · 會學習的系統</div>
+      <div style="background:#fff;border-radius:10px;padding:24px 18px;font-size:33px;font-weight:700;text-align:center;">編輯評分回饋</div>
+      <div style="text-align:center;font-size:27px;font-weight:900;color:#5a1c0e;margin:8px 0;">↓ 反饋</div>
+      <div style="background:#fff;border-radius:10px;padding:24px 18px;font-size:33px;font-weight:700;text-align:center;">AI 產生優化版 Prompt <span style="font-weight:400;font-size:24px;color:#8a7f6d;">（人審核上線）</span></div>
+      <div style="text-align:center;font-size:27px;font-weight:900;color:#5a1c0e;margin:8px 0;">↓ 進化</div>
+      <div style="background:#fff;border-radius:10px;padding:24px 18px;font-size:33px;font-weight:700;text-align:center;">語料萃取「自家文風」</div>
+      <div style="font-size:24px;font-weight:900;color:#5a1c0e;text-align:center;">↻ 逐篇評分回流，持續優化</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 02 · 學到了什麼 ① — 4 個關鍵 ══ -->
+<section data-label="4個關鍵" data-speaker-notes="內容與 AI 的 4 個關鍵：原創價值取決於來源品質;去 AI 味是持久戰;Prompt 不是魔法，是編輯經驗的翻譯;AI 最弱的是語感。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:52px 84px 56px;display:flex;flex-direction:column;">
+  <div class="rvU" style="--d:.05s;display:flex;align-items:center;gap:20px;margin:0 0 30px;">
+    <span style="font-size:26px;font-weight:900;letter-spacing:2px;color:#A62F27;border:2px solid #A62F27;border-radius:999px;padding:6px 24px;background:rgba(255,253,247,.75);white-space:nowrap;">02 · 學到了什麼 ①</span>
+    <h2 style="font-weight:900;font-size:58px;margin:0;white-space:nowrap;"><span style="color:#A62F27;font-size:70px;">4</span> 個關鍵</h2>
+    <span style="margin-left:auto;font-size:27px;color:#8a7f6d;font-weight:700;">內容與 AI</span>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:28px;flex:1;">
+    <div class="pop" style="--d:.14s;--r:-1.2deg;background:#CBDDB2;border-radius:4px;padding:30px 36px;box-shadow:0 8px 18px rgba(0,0,0,.08);position:relative;display:flex;flex-direction:column;">
+      <div style="position:absolute;top:-13px;left:44px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#555,#222);box-shadow:0 3px 5px rgba(0,0,0,.25);"></div>
+      <div style="font-size:33px;font-weight:900;margin:0 0 18px;padding-bottom:16px;border-bottom:2px solid rgba(0,0,0,.12);">① 原創價值，取決於「來源品質」</div><div style="margin:auto 0;font-size:34px;line-height:1.8;color:#4a4336;text-align:left;text-wrap:pretty;">快訊式文章即使透過 AI 重寫也難有深度，<b>該換題就換題</b>。</div>
+
+    </div>
+    <div class="pop" style="--d:.24s;--r:1.2deg;background:#BBD8E8;border-radius:4px;padding:30px 36px;box-shadow:0 8px 18px rgba(0,0,0,.08);position:relative;display:flex;flex-direction:column;">
+      <div style="position:absolute;top:-13px;left:44px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#e8615a,#b23127);box-shadow:0 3px 5px rgba(0,0,0,.25);"></div>
+      <div style="font-size:33px;font-weight:900;margin:0 0 18px;padding-bottom:16px;border-bottom:2px solid rgba(0,0,0,.12);">② 去 AI 味是持久戰</div>
+      <div style="margin:auto 0;font-size:34px;line-height:1.8;color:#4a4336;text-align:left;text-wrap:pretty;">必須依賴編輯<b>持續回饋，</b>推動系統自動化學習。</div>
+    </div>
+    <div class="pop" style="--d:.34s;--r:1deg;background:#E4C15E;border-radius:4px;padding:30px 36px;box-shadow:0 8px 18px rgba(0,0,0,.08);position:relative;display:flex;flex-direction:column;">
+      <div style="position:absolute;top:-13px;left:44px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#7d8a55,#4f5c31);box-shadow:0 3px 5px rgba(0,0,0,.25);"></div>
+      <div style="font-size:33px;font-weight:900;margin:0 0 18px;padding-bottom:16px;border-bottom:2px solid rgba(0,0,0,.12);">③ Prompt 不是魔法，是編輯經驗的翻譯</div>
+      <div style="margin:auto 0;font-size:34px;line-height:1.8;color:#4a4336;text-align:left;text-wrap:pretty;">好的規則，全都來自編輯親手抓到的<b>「真實壞例子」</b>。</div>
+    </div>
+    <div class="pop" style="--d:.44s;--r:-1deg;background:#EFA98F;border-radius:4px;padding:30px 36px;box-shadow:0 8px 18px rgba(0,0,0,.08);position:relative;display:flex;flex-direction:column;">
+      <div style="position:absolute;top:-13px;left:44px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#c9642f,#8a3f18);box-shadow:0 3px 5px rgba(0,0,0,.25);"></div>
+      <div style="font-size:33px;font-weight:900;margin:0 0 18px;padding-bottom:16px;border-bottom:2px solid rgba(0,0,0,.12);">④ AI 最弱的是「語感」</div>
+      <div style="margin:auto 0;font-size:34px;line-height:1.8;color:#4a4336;text-align:left;text-wrap:pretty;">內容編輯是最後、也是最重要的<b>終極守門員</b>。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 03 · 學到了什麼 ② — 痛點與修正 ══ -->
+<section data-label="痛點與修正" data-speaker-notes="操作太複雜、Prompt 選擇困難→三步只顯示單一最佳 Prompt;說不出哪裡不好→維度式評分;評分機制繁瑣→改點選標籤;產出孤島→回流比對加入自動學習閉環。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:52px 84px 50px;display:flex;flex-direction:column;">
+  <div class="rvU" style="--d:.05s;display:flex;align-items:center;gap:20px;margin:0 0 24px;">
+    <span style="font-size:26px;font-weight:900;letter-spacing:2px;color:#A62F27;border:2px solid #A62F27;border-radius:999px;padding:6px 24px;background:rgba(255,253,247,.75);white-space:nowrap;">03 · 學到了什麼 ②</span>
+    <h2 style="font-weight:900;font-size:58px;margin:0;white-space:nowrap;"><span style="color:#A62F27;">痛點</span> 與 <span style="color:#5f8a3f;">修正</span></h2>
+    <span style="margin-left:auto;font-size:27px;color:#8a7f6d;font-weight:700;">痛點 → 修正</span>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:16px;flex:1;justify-content:center;">
+    <div class="rv" style="--d:.12s;display:flex;align-items:stretch;gap:0;background:#fff;border:1.5px solid #E0D4B4;border-radius:14px;overflow:hidden;box-shadow:0 5px 14px rgba(0,0,0,.06);">
+      <div style="flex:0 0 60px;background:#A62F27;color:#fff;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;">1</div>
+      <div style="flex:0 0 420px;background:#FBEAE4;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:28px;font-weight:900;color:#8a3025;">操作太複雜<br>Prompt 選擇困難</span>
+      </div>
+      <div style="align-self:center;font-size:34px;color:#A62F27;font-weight:900;padding:0 14px;">→</div>
+      <div style="flex:1;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:24px;font-weight:900;color:#5f8a3f;letter-spacing:2px;">✔ 修正</span>
+        <span style="font-size:26px;line-height:1.4;color:#3e5230;">一路簡化為「<b>選題 → 評分 → 定稿</b>」三步；全自動化標記與風格選擇，只顯示單一最佳 Prompt。</span>
+      </div>
+    </div>
+    <div class="rv" style="--d:.22s;display:flex;align-items:stretch;gap:0;background:#fff;border:1.5px solid #E0D4B4;border-radius:14px;overflow:hidden;box-shadow:0 5px 14px rgba(0,0,0,.06);">
+      <div style="flex:0 0 60px;background:#A62F27;color:#fff;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;">2</div>
+      <div style="flex:0 0 420px;background:#FBEAE4;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:28px;font-weight:900;color:#8a3025;">說不出哪裡不好<br>（1-3 星評分失效）</span>
+      </div>
+      <div style="align-self:center;font-size:34px;color:#A62F27;font-weight:900;padding:0 14px;">→</div>
+      <div style="flex:1;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:24px;font-weight:900;color:#5f8a3f;letter-spacing:2px;">✔ 修正</span>
+        <span style="font-size:26px;line-height:1.4;color:#3e5230;">維度式評分 👍／🔧／❌，勾選具體維度＋「<b>原句 → 建議改成</b>」，壞例子直接轉化為訓練料。</span>
+      </div>
+    </div>
+    <div class="rv" style="--d:.32s;display:flex;align-items:stretch;gap:0;background:#fff;border:1.5px solid #E0D4B4;border-radius:14px;overflow:hidden;box-shadow:0 5px 14px rgba(0,0,0,.06);">
+      <div style="flex:0 0 60px;background:#A62F27;color:#fff;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;">3</div>
+      <div style="flex:0 0 420px;background:#FBEAE4;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:28px;font-weight:900;color:#8a3025;">評分機制繁瑣，降低意願</span>
+      </div>
+      <div style="align-self:center;font-size:34px;color:#A62F27;font-weight:900;padding:0 14px;">→</div>
+      <div style="flex:1;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:24px;font-weight:900;color:#5f8a3f;letter-spacing:2px;">✔ 修正</span>
+        <span style="font-size:26px;line-height:1.4;color:#3e5230;">改用直覺「<b>點選</b>」標籤（如：開場沒破題、AI 味太重、斷句怪）。</span>
+      </div>
+    </div>
+    <div class="rv" style="--d:.42s;display:flex;align-items:stretch;gap:0;background:#fff;border:1.5px solid #E0D4B4;border-radius:14px;overflow:hidden;box-shadow:0 5px 14px rgba(0,0,0,.06);">
+      <div style="flex:0 0 60px;background:#A62F27;color:#fff;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:900;">4</div>
+      <div style="flex:0 0 420px;background:#FBEAE4;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:28px;font-weight:900;color:#8a3025;">產出孤島，無法進步</span>
+      </div>
+      <div style="align-self:center;font-size:34px;color:#A62F27;font-weight:900;padding:0 14px;">→</div>
+      <div style="flex:1;padding:16px 26px;display:flex;flex-direction:column;justify-content:center;gap:6px;">
+        <span style="font-size:24px;font-weight:900;color:#5f8a3f;letter-spacing:2px;">✔ 修正</span>
+        <span style="font-size:26px;line-height:1.4;color:#3e5230;">融合文章<b>回流比對</b>，定時與真實記者文章比對優化，加入自動學習閉環。</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 04 · 展望 — 下一步行動 ══ -->
+<section data-label="下一步行動" data-speaker-notes="導入讀者成效數據;個人化起步;降低門檻。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:52px 84px 56px;display:flex;flex-direction:column;">
+  <svg class="pop" style="--d:.5s;--r:12deg;position:absolute;top:100px;right:150px;width:38px;height:38px;pointer-events:none;" viewBox="0 0 24 24" fill="none" stroke="#5C5346" stroke-width="1.4"><path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"></path></svg>
+  <div class="rvU" style="--d:.05s;display:flex;align-items:center;gap:20px;margin:0 0 30px;">
+    <span style="font-size:26px;font-weight:900;letter-spacing:2px;color:#A62F27;border:2px solid #A62F27;border-radius:999px;padding:6px 24px;background:rgba(255,253,247,.75);white-space:nowrap;">04 · 展望</span>
+    <h2 style="font-weight:900;font-size:58px;margin:0;white-space:nowrap;">下一步<span style="background:linear-gradient(transparent 55%,#F3E27E 55%);padding:0 4px;">行動</span></h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+    <div style="position:relative;display:flex;align-items:stretch;gap:40px;padding:0 20px;">
+      <div style="position:absolute;top:44px;left:90px;right:90px;height:4px;background:repeating-linear-gradient(90deg,#d8c5a0 0 14px,transparent 14px 26px);z-index:0;"></div>
+      <div class="rv" style="--d:.16s;flex:1;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="width:88px;height:88px;border-radius:50%;background:#A62F27;color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900;box-shadow:0 6px 16px rgba(166,47,39,.3);">01</div>
+        <div style="margin-top:22px;background:#fff;border:1.5px solid #E0D4B4;border-radius:18px;padding:28px 30px;box-shadow:0 6px 16px rgba(0,0,0,.06);width:100%;">
+          <div style="font-size:34px;font-weight:900;color:#A62F27;">導入讀者成效數據</div>
+          <div style="font-size:28px;line-height:1.55;color:#4a4336;margin-top:14px;">開信率接進系統 <br>→ 主旨 <b>A/B 測試</b> <br>→ 讀者行為回饋自動學習<br>（從「編輯評分」擴到「讀者投票」）。</div>
+        </div>
+      </div>
+      <div class="rv" style="--d:.28s;flex:1;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="width:88px;height:88px;border-radius:50%;background:#A62F27;color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900;box-shadow:0 6px 16px rgba(166,47,39,.3);">02</div>
+        <div style="margin-top:22px;background:#fff;border:1.5px solid #E0D4B4;border-radius:18px;padding:28px 30px;box-shadow:0 6px 16px rgba(0,0,0,.06);width:100%;">
+          <div style="font-size:34px;font-weight:900;color:#A62F27;">個人化起步</div>
+          <div style="font-size:28px;line-height:1.55;color:#4a4336;margin-top:14px;">興趣分眾派發<br>（<b>讀者興趣標籤已就緒</b>）。</div>
+        </div>
+      </div>
+      <div class="rv" style="--d:.4s;flex:1;position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;">
+        <div style="width:88px;height:88px;border-radius:50%;background:#A62F27;color:#fff;display:flex;align-items:center;justify-content:center;font-size:44px;font-weight:900;box-shadow:0 6px 16px rgba(166,47,39,.3);">03</div>
+        <div style="margin-top:22px;background:#fff;border:1.5px solid #E0D4B4;border-radius:18px;padding:28px 30px;box-shadow:0 6px 16px rgba(0,0,0,.06);width:100%;">
+          <div style="font-size:34px;font-weight:900;color:#A62F27;">降低門檻</div>
+          <div style="font-size:28px;line-height:1.55;color:#4a4336;margin-top:14px;">讓更多編輯上手<br>（<b>操作簡報與 SOP </b>）。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ 05 · 總結 — 最大的收穫 ══ -->
+<section data-label="最大的收穫" data-speaker-notes="AI 做繁瑣整理，編輯做價值判斷——編輯從撰稿者升級成判斷者。實證：一人＋AI 建立整套系統。金句收束。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:52px 84px 56px;display:flex;flex-direction:column;">
+  <svg class="pop" style="--d:.6s;--r:-10deg;position:absolute;top:100px;right:160px;width:44px;height:44px;pointer-events:none;" viewBox="0 0 24 24" fill="none" stroke="#5C5346" stroke-width="1.4"><path d="M12 2 L14 10 L22 12 L14 14 L12 22 L10 14 L2 12 L10 10 Z"></path></svg>
+  <div class="rvU" style="--d:.05s;display:flex;align-items:center;gap:20px;margin:0 0 30px;">
+    <span style="font-size:26px;font-weight:900;letter-spacing:2px;color:#A62F27;border:2px solid #A62F27;border-radius:999px;padding:6px 24px;background:rgba(255,253,247,.75);white-space:nowrap;">05 · 總結</span>
+    <h2 style="font-weight:900;font-size:58px;margin:0;white-space:nowrap;">最大的收穫</h2>
+  </div>
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:56px;">
+    <div class="rvU" style="--d:.14s;font-weight:900;font-size:56px;line-height:1.42;"><span style="color:#A62F27;">AI 做繁瑣整理</span>，編輯做價值判斷<br><span style="font-size:42px;color:#6A6152;">編輯從「撰稿者」升級成「判斷者」</span></div>
+    <div class="rvU" style="--d:.28s;border:2px solid #6A6152;border-radius:8px;padding:36px 56px;max-width:1260px;background:rgba(255,253,247,.5);">
+      <div style="font-size:44px;font-weight:900;">實證：一人＋AI 建立整套系統</div>
+      <div style="font-size:33px;color:#4a4336;margin-top:16px;line-height:1.5;">短短 6 週，從計畫書到雙頻道成功出刊，並內建自動學習閉環。</div>
+    </div>
+    <div class="rvU" style="--d:.44s;font-weight:900;font-size:54px;line-height:1.46;"><span style="background:linear-gradient(transparent 56%,#F3E27E 56%);padding:0 6px;">「AI 不會取代編輯；<br>會使用 AI 的編輯，將能重新掌握內容樣貌與出刊節奏。」</span></div>
+  </div>
+</section>
+
+<!-- ══ 成果展示（一）══ -->
+<section data-label="成果展示一" data-speaker-notes="現場示範：本期編輯檯／選主題畫面。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:52px 84px 56px;display:flex;flex-direction:column;">
+  <div class="rvU" style="--d:.05s;display:flex;align-items:center;gap:20px;margin:0 0 24px;">
+    <h2 style="font-weight:900;font-size:58px;margin:0;white-space:nowrap;">成果展示（一）</h2>
+    <span style="margin-left:auto;font-size:27px;color:#8a7f6d;font-weight:700;">本期編輯檯 · 選主題</span>
+  </div>
+  <div class="rv" style="--d:.2s;flex:1;background:#fff;border-radius:8px;padding:16px;box-shadow:0 10px 28px rgba(0,0,0,.12);">
+    <img src="pptx_media/image7.png" alt="本期編輯檯／選主題" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;">
+  </div>
+</section>
+
+<!-- ══ 成果展示（二）══ -->
+<section data-label="成果展示二" data-speaker-notes="現場示範：自動學習畫面。" style="height:100%;box-sizing:border-box;background-color:#F2EBD9;background-image:linear-gradient(rgba(120,110,90,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(120,110,90,.06) 1px,transparent 1px);background-size:44px 44px;color:#2E2A24;font-family:'Noto Sans TC',sans-serif;position:relative;overflow:hidden;padding:52px 84px 56px;display:flex;flex-direction:column;">
+  <div class="rvU" style="--d:.05s;display:flex;align-items:center;gap:20px;margin:0 0 24px;">
+    <h2 style="font-weight:900;font-size:58px;margin:0;white-space:nowrap;">成果展示（二）</h2>
+    <span style="margin-left:auto;font-size:27px;color:#8a7f6d;font-weight:700;">自動學習</span>
+  </div>
+  <div class="rv" style="--d:.2s;flex:1;background:#fff;border-radius:8px;padding:16px;box-shadow:0 10px 28px rgba(0,0,0,.12);">
+    <img src="pptx_media/image1.png" alt="自動學習" style="width:100%;height:100%;object-fit:contain;object-position:center;display:block;">
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+</body>
+</html>
